@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const AboutUs = () => {
   const [date, setDate] = useState(new Date());
   const handleNotify = () => {
-    toast.success("🎉 You’ll be notified when the About Us page is ready!", {
+    toast.success("🎉 my email: misskhat.hossen@gmail.com", {
       position: "top-center",
       autoClose: 3000,
       theme: "colored",
@@ -30,12 +30,12 @@ const AboutUs = () => {
         {date.toLocaleTimeString()}
       </h2>
 
-      <p className="flex gap-2 mt-5 text-lg text-white/90">
+      <div className="flex gap-2 mt-5 text-lg text-white/90">
         <span className="opacity-75">
           Firebase revision purpose making this website
         </span>
         <p className="animate-spin">🤓</p>
-      </p>
+      </div>
 
       <div className="mt-10">
         <button

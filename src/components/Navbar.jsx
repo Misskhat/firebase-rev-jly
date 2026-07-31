@@ -35,7 +35,7 @@ function Navbar() {
 
         <Link
           className="btn text-white bg-gradient-to-br from-[#90CAF9] via-[#2196F3] to-[#90CAF9]"
-          to={"/singin"}
+          to={"/sign-in"}
         >
           SignIn
         </Link>

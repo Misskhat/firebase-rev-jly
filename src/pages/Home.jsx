@@ -15,14 +15,12 @@ function Home() {
       <h1 className="text-5xl md:text-6xl font-bold text-white animate-bounce drop-shadow-lg">
         🏠 Home page is Coming Soon !true
       </h1>
-
-      <p className="flex gap-2 mt-5 text-lg text-white/90">
+      <div className="flex gap-2 mt-5 text-lg text-white/90">
         <span className="opacity-75">
           Firebase revision purpose making this website
         </span>
         <p className="animate-spin">🤓</p>
-      </p>
-
+      </div>
       <div className="mt-10">
         <button
           onClick={handleNotify}
@@ -31,7 +29,6 @@ function Home() {
           Notify Me
         </button>
       </div>
-
       <div className="absolute bottom-6 text-white text-sm animate-pulse">
         Developed by <span className="font-bold">Misshkat 🧑‍💻</span>
       </div>
