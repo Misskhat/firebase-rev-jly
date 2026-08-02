@@ -1,5 +1,8 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { auth } from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [show, setShow] = useState(true);
@@ -8,6 +11,20 @@ function Signup() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log("form submit", { email, password });
+
+    if (password.length < 6) {
+      toast.error("Password must be 6 digit");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        console.log(res);
+        toast.success("Successfully you signUp");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#90CAF9] via-[#2196F3] to-[#90CAF9]">
