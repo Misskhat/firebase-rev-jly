@@ -1,7 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 function Signin() {
+  const [show, setShow] = useState(true);
+  const [user, setUser] = useState(null);
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ email, password });
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#90CAF9] via-[#2196F3] to-[#90CAF9]">
       <div className="hero min-h-screen">
@@ -16,18 +25,31 @@ function Signin() {
           </div>
           <div className="card bg-base-100/50 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <form className="fieldset">
+              <form onSubmit={handleSignIn} className="fieldset">
                 <label className="label">Email</label>
-                <input type="email" className="input" placeholder="Email" />
-                <label className="label">Password</label>
                 <input
-                  type="password"
+                  name="email"
+                  type="email"
                   className="input"
-                  placeholder="Password"
+                  placeholder="Email"
                 />
-                <div>
-                  <a className="link link-hover">Forgot password?</a>
+                <div className="relative">
+                  <label className="label">Password</label>
+                  <input
+                    type={show ? "password" : "text"}
+                    className="input"
+                    placeholder="Password"
+                    name="password"
+                  />
+                  <span
+                    onClick={() => setShow(!show)}
+                    className="absolute text-xl right-6 bottom-[8px] cursor-pointer"
+                  >
+                    {show ? "☺️" : "🙂"}
+                  </span>
                 </div>
+                <a className="link link-hover">Forgot password?</a>
+
                 <button className="btn text-white mt-4 bg-gradient-to-br from-[#90CAF9] via-[#2196F3] to-[#90CAF9]">
                   SignIN
                 </button>
